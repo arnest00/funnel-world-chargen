@@ -1,0 +1,43 @@
+body {
+	font-family: 'Lora', serif;
+	margin: 0;
+	background-color: #fafafa;
+}
+
+button {
+	border: 0;
+	background-color: #1a472a;
+	color: white;
+	font-size: 1.0em;
+	border-radius: 10px;
+	line-height: 2.5;
+	padding: 0 16px;
+}
+
+button:focus {
+	outline: none;
+}
+
+button:active {
+	background-color: #2a623d;
+}
+
+p {
+	line-height: 0.5;
+}
+
+h1 {
+	margin-top: 0;
+}
+
+#container {
+	width: 50%;
+	margin: 2.0em auto;
+	padding: 16px 12px;
+	text-align: center;
+	background-color: #f2f2f2;
+}
+
+#char {
+	text-align: left;
+}
