@@ -43,18 +43,17 @@ musterBtn.addEventListener("click", function() {
 	detTraits();
 });
 
-// amt is the number of dice, num is the type of dice
-function rollDice(amt, num) {
-	var result = 0;
-	for(var i = 1; i <= amt; i++) {
-		result += Math.floor(Math.random() * num) + 1;
+function rollDice(sides, amt = 1) {
+	let result = 0;
+	for(let i = 0; i < amt; i++) {
+		result += Math.floor(Math.random() * sides) + 1;
 	};
 	return result;
 }
 
 function detStats() {
 	for(var i = 0; i < attributes.length; i++) {
-		attributes[i].textContent = rollDice(3, 6);
+		attributes[i].textContent = rollDice(6, 3);
 	};
 	detMods(attributes);
 	hp.textContent = Math.ceil(Number(attributes[2].textContent) / 4);
@@ -62,7 +61,7 @@ function detStats() {
 };
 
 function rollGender() {
-	var i = rollDice(1, 6);
+	var i = rollDice(6);
 	if(i < 4) {
 		gender.textContent = "Male";
 	} else if(i >= 4) {
@@ -71,8 +70,8 @@ function rollGender() {
 };
 
 function chooseName() {
-	var i = -1 + rollDice(1, 100);
-	var j = -1 + rollDice(1, 10);
+	var i = -1 + rollDice(100);
+	var j = -1 + rollDice(10);
 	if(gender.textContent === "Male") {
 		if(isDwarf === true) {
 			randomName.textContent = maleDwarfNames[j];
@@ -97,7 +96,7 @@ function chooseName() {
 };
 
 function chooseJob() {
-	var i = rollDice(1, 100);
+	var i = rollDice(100);
 	if(i > 29 && i < 34) {
 		isDwarf = true;
 	};
@@ -133,8 +132,8 @@ function detMods(arr) {
 };
 
 function detTraits() {
-	var i = -1 + rollDice(1, 100);
-	var j = -1 + rollDice(1, 100);
+	var i = -1 + rollDice(100);
+	var j = -1 + rollDice(100);
 	traits.textContent = physTraits[i] + ", " + persTraits[j];
 };
 
