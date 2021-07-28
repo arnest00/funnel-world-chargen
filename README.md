@@ -1,7 +1,10 @@
-# funnel-world-chargen
+# Funnel World Chargen
 
-A simple tool for generating villagers for <a href="https://www.drivethrurpg.com/product/137012/Funnel-World" target="_blank"><em>Funnel World</em></a>.
+A simple tool for generating villagers for [*Funnel World*](https://www.drivethrurpg.com/product/137012/Funnel-World).
 
-Still need to add Bond and Gear functionality.
+*Funnel World* was written by Jason Lutes.
 
-<em>Funnel World</em> was written by Jason Lutes.
+## Built With
+
+  - Bootstrapped with [Create Next App](https://github.com/vercel/next.js/tree/canary/packages/create-next-app)
+  - [Next.js](https://nextjs.org/)
