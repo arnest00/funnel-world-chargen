@@ -1,75 +1,95 @@
+import { useState } from 'react';
 import Head from 'next/head';
 import Layout from '../components/layout';
 import Button from '../components/button';
+import styles from '../styles/Home.module.css';
+import { getCharacter } from '../utils/getCharacter';
 
 export default function Home() {
+  const [ newChar, setNewChar ] = useState({});
+
+  const handleClick = () => {
+    const rolledChar = getCharacter();
+
+    setNewChar(rolledChar);
+  };
+
   return (
     <Layout>
       <Head>
         <title>Funnel World Villager Generator</title>
       </Head>
-        <Button 
-          action='Muster Villager'
-        />
+        <div className={styles.buttonContainer}>
+          <Button 
+            action='Muster Villager' 
+            handleClick={handleClick}
+          />
+        </div>
 
-        <section>
-          <p>Name: <span id="name"></span></p>
-          <p>Level: 0</p>
-          <p>XP: 0</p>
-          <p>Occupation: <span id="job"></span></p>
-          <p>Gender: <span id="gender"></span></p>
-          <p>Traits: <span id="traits"></span></p>
-          <p>Alignment: Undeclared</p>
+        {!newChar.abilities ? (
+          <section>
+            <p>Press the button to generate a new character!</p>
+          </section>
+        ) : (
+          <section>
+            <p>Name: {newChar.name}</p>
+            <p>Level: 0</p>
+            <p>XP: 0</p>
+            <p>Occupation: {newChar.job}</p>
+            <p>Gender: {newChar.gender}</p>
+            <p>Traits: {newChar.traits}</p>
+            <p>Alignment: Undeclared</p>
 
-          <table>
-            <tbody>
-              <tr>
-                <td>Strength</td>
-                <td><span id="str"></span></td>
-                <td>STR</td>
-                <td><span className="mod"></span></td>
-              </tr>
-              <tr>
-                <td>Dexterity</td>
-                <td><span id="dex"></span></td>
-                <td>DEX</td>
-                <td><span className="mod"></span></td>
-              </tr>
-              <tr>
-                <td>Constitution</td>
-                <td><span id="con"></span></td>
-                <td>CON</td>
-                <td><span className="mod"></span></td>
-              </tr>
-              <tr>
-                <td>Intelligence</td>
-                <td><span id="int"></span></td>
-                <td>INT</td>
-                <td><span className="mod"></span></td>
-              </tr>
-              <tr>
-                <td>Wisdom</td>
-                <td><span id="wis"></span></td>
-                <td>WIS</td>
-                <td><span className="mod"></span></td>
-              </tr>
-              <tr>
-                <td>Charisma</td>
-                <td><span id="cha"></span></td>
-                <td>CHA</td>
-                <td><span className="mod"></span></td>
-              </tr>
-            </tbody>
-          </table>
+            <table>
+              <tbody>
+                <tr>
+                  <td>Strength</td>
+                  <td>{newChar.abilities[0].score}</td>
+                  <td>STR</td>
+                  <td>{newChar.abilities[0].mod}</td>
+                </tr>
+                <tr>
+                  <td>Dexterity</td>
+                  <td>{newChar.abilities[1].score}</td>
+                  <td>DEX</td>
+                  <td>{newChar.abilities[1].mod}</td>
+                </tr>
+                <tr>
+                  <td>Constitution</td>
+                  <td>{newChar.abilities[2].score}</td>
+                  <td>CON</td>
+                  <td>{newChar.abilities[2].mod}</td>
+                </tr>
+                <tr>
+                  <td>Intelligence</td>
+                  <td>{newChar.abilities[3].score}</td>
+                  <td>INT</td>
+                  <td>{newChar.abilities[3].mod}</td>
+                </tr>
+                <tr>
+                  <td>Wisdom</td>
+                  <td>{newChar.abilities[4].score}</td>
+                  <td>WIS</td>
+                  <td>{newChar.abilities[4].mod}</td>
+                </tr>
+                <tr>
+                  <td>Charisma</td>
+                  <td>{newChar.abilities[5].score}</td>
+                  <td>CHA</td>
+                  <td>{newChar.abilities[5].mod}</td>
+                </tr>
+              </tbody>
+            </table>
 
-          <p>Armor 0</p>
-          <p>HP <span id="hp">Constitution/4, rounded up</span></p>
-          <p>Damage d4</p>
-          <p>Load <span id="load">STR+4</span></p>
-          <p>Bond: <span id="bond"></span></p>
-          <p>Gear: <span id="gear"></span></p>
-          <p>Starting Moves: Know Your Stuff<span id="move"></span></p>
-        </section>
+            <p>Armor 0</p>
+            <p>HP {newChar.hp}</p>
+            <p>Damage d4</p>
+            <p>Load {newChar.load}</p>
+            <p>Bond: {newChar.bond ? newChar.bond : ''}</p>
+            <p>Gear: {newChar.gear ? newChar.gear : ''}</p>
+            <p>Starting Moves: Know Your Stuff{newChar.move ? `, ${newChar.move}` : ''}</p>
+          </section>
+        )}
     </Layout>
   );
 };
