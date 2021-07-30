@@ -42,42 +42,14 @@ export default function Home() {
 
             <table>
               <tbody>
-                <tr>
-                  <td>Strength</td>
-                  <td>{newChar.abilities[0].score}</td>
-                  <td>STR</td>
-                  <td>{newChar.abilities[0].mod}</td>
-                </tr>
-                <tr>
-                  <td>Dexterity</td>
-                  <td>{newChar.abilities[1].score}</td>
-                  <td>DEX</td>
-                  <td>{newChar.abilities[1].mod}</td>
-                </tr>
-                <tr>
-                  <td>Constitution</td>
-                  <td>{newChar.abilities[2].score}</td>
-                  <td>CON</td>
-                  <td>{newChar.abilities[2].mod}</td>
-                </tr>
-                <tr>
-                  <td>Intelligence</td>
-                  <td>{newChar.abilities[3].score}</td>
-                  <td>INT</td>
-                  <td>{newChar.abilities[3].mod}</td>
-                </tr>
-                <tr>
-                  <td>Wisdom</td>
-                  <td>{newChar.abilities[4].score}</td>
-                  <td>WIS</td>
-                  <td>{newChar.abilities[4].mod}</td>
-                </tr>
-                <tr>
-                  <td>Charisma</td>
-                  <td>{newChar.abilities[5].score}</td>
-                  <td>CHA</td>
-                  <td>{newChar.abilities[5].mod}</td>
-                </tr>
+                {newChar.abilities.map((ability, idx) => (
+                  <tr key={idx}>
+                    <td>{ability.name}</td>
+                    <td>{ability.score}</td>
+                    <td>{ability.abbrev}</td>
+                    <td>{ability.mod}</td>
+                  </tr>
+                ))}
               </tbody>
             </table>
 

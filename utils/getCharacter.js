@@ -13,98 +13,112 @@ const jobList = ["Alewife", "Apiarist", "Apothecary", "Baker", "Bard", "Basketma
 const physicalTraits = ["Bald", "Balding", "Barrel-chested", "Big feet", "Big hands", "Bloodshot eyes", "Blue-eyed", "Bony", "Booming voice", "Braided hair", "Broad brow", "Broad chest", "Broad hips", "Broad shoulders", "Buck teeth", "Bushy eyebrows", "Cleft chin", "Crooked teeth", "Curly hair", "Dark eyes", "Dark skin", "Dimples", "Dirty", "Fair-haired", "Fat", "Freckled", "Full lips", "Furrowed brow", "Glowering", "Gnarled fingers", "Greasy-looking", "Hairless", "Hawk-nosed", "High cheekbones", "Hirsute", "Hunchback", "Husky voice", "Lambchop sideburns", "Lanky", "Large ears", "Large eyes", "Large eyes", "Large nose", "Lazy eye", "Limp", "Long arms", "Long beard", "Long fingers", "Long legs", "Long mustache", "Long torso", "Matted hair", "Missing teeth", "Nasal voice", "Nearsighted", "Nose ring", "One ear", "One eye", "One hand", "Pale skin", "Peg leg", "Persistent cough", "Petite", "Piercing(s)", "Plump", "Pop-eyed", "Pot-bellied", "Quiet voice", "Rosy cheeks", "Rotten teeth", "Ruddy", "Scars(s)", "Scowly", "Sharp chin", "Sharp fingernails", "Short", "Short hair", "Skinny", "Small ears", "Small eyes", "Small feet", "Small hands", "Small nose", "Smiley", "Spade-like hands", "Square jaw", "Stocky", "Stubby fingers", "Swan-like neck", "Tall", "Tattoo(s)", "Thick neck", "Unibrow", "Wavy hair", "Weathered", "Well-built", "Well-groomed", "Wheezy", "Whiny", "Wild hair"];
 const personalityTraits = ["Absentminded", "Aggressive", "Aloof", "Ambitious", "Arrogant", "Callous", "Calm", "Cantankerous", "Cautious", "Cheerful", "Coarse", "Competitive", "Conceited", "Confident", "Conscientious", "Courageous", "Courteous", "Covetous", "Cowardly", "Crazy", "Crude", "Curious", "Cynical", "Daring", "Deceitful", "Decisive", "Dignified", "Disciplined", "Drunkard", "Earnest", "Earthy", "Efficient", "Egocentric", "Enthusiastic", "Fatalistic", "Fiery", "Foolish", "Forgiving", "Forthright", "Friendly", "Frugal", "Generous", "Gentle", "Good-natured", "Gracious", "Greedy", "Gullible", "Helpful", "Honorable", "Humble", "Honorable", "Humble", "Impulsive", "Kind", "Lazy", "Libidinous", "Loyal", "Melancholic", "Methodical", "Modest", "Moralistic", "Morbid", "Mystical", "Naive", "Neat", "Nihilistic", "Obedient", "Obsessive", "Opportunistic", "Optimistic", "Outspoken", "Paranoid", "Peaceful", "Pedantic", "Plodding", "Power-hungry", "Protective", "Proud", "Quiet", "Realistic", "Religious", "Romantic", "Sadistic", "Sanctimonious", "Sarcastic", "Secretive", "Selfless", "Serious", "Shrewd", "Solitary", "Steadfast", "Stoic", "Stone-cold", "Stubborn", "Superstitious", "Suspicious", "Thorough", "Timid", "Treacherous", "Trusting"];
 
-// const detMods = arr => {
-// 	for(let i = 0; i < arr.length; i++) {
-// 	// assign mods
-// 		if(arr[i].textContent < 4) {
-// 			attrMods[i].textContent = -3;
-// 		} else if(arr[i].textContent >= 4 && arr[i].textContent < 6) {
-// 			attrMods[i].textContent = -2;
-// 		} else if(arr[i].textContent >= 6 && arr[i].textContent < 9) {
-// 			attrMods[i].textContent = -1;
-// 		} else if(arr[i].textContent >= 9 && arr[i].textContent < 13) {
-// 			attrMods[i].textContent = 0;
-// 		} else if(arr[i].textContent >= 13 && arr[i].textContent < 16) {
-// 			attrMods[i].textContent = 1;
-// 		} else if(arr[i].textContent >= 16 && arr[i].textContent < 17) {
-// 			attrMods[i].textContent = 2;
-// 		} else {
-// 			attrMods[i].textContent = 3;
-// 		};
-// 	};
-// };
+const determineRace = result => {
+  const rolledRace = result + 1;
 
-// const detRacialMove = () => {
-// 	if(isDwarf === true) {
-// 		racialMove.textContent += ", Smell Gold";
-// 	} else if(isElf === true) {
-// 		racialMove.textContent += ", Tread Lightly";
-// 	} else if(isHalfling === true) {
-// 		racialMove.textContent += ", Make Friends";
-// 	};
-// };
-
-const determineJob = () => {
-  // let i = rollDice(100);
-  // if (i > 29 && i < 34) {
-  //   isDwarf = true;
-  // };
-  // if (i > 33 && i < 38) {
-  //   isElf = true;
-  // };
-  // if (i > 51 && i < 56) {
-  //   isHalfling = true;
-  // };
-  // i -= 1;
-  // randomJob.textContent = jobList[i];
-
-  let result = getDiceRoll(jobList.length);
-
-  return jobList[result];
-};
-
-const determineName = () => {
-  let result = getDiceRoll(maleNames.length);
-
-  return maleNames[result];
+  if (rolledRace > 29 && rolledRace < 34) 
+    return 'dwarf';
+  else if (rolledRace > 33 && rolledRace < 38) 
+    return 'elf';
+  else if (rolledRace > 51 && rolledRace < 56) 
+    return 'halfling';
+  else return 'human';
 };
 
 const determineGender = () => {
 	let result = getDiceRoll(6);
 
 	if (result < 4) {
-		return "Male";
+		return 'Male';
 	} else if (result >= 4) {
-		return "Female";
+		return 'Female';
 	};
 };
 
+const determineName = (race, gender) => {
+  if (race === 'dwarf') 
+    if (gender === 'Male') return maleDwarfNames[getDiceRoll(maleDwarfNames.length - 1)];
+    else return femaleDwarfNames[getDiceRoll(femaleDwarfNames.length - 1)];
+
+  if (race === 'elf') 
+    if (gender === 'Male') return maleElfNames[getDiceRoll(maleElfNames.length - 1)];
+    else return femaleElfNames[getDiceRoll(femaleElfNames.length - 1)];
+
+  if (race === 'halfling') 
+    if (gender === 'Male') return maleHalflingNames[getDiceRoll(maleHalflingNames.length - 1)];
+    else return femaleHalflingNames[getDiceRoll(femaleHalflingNames.length - 1)];
+
+  if (race === 'human') 
+    if (gender === 'Male') return maleNames[getDiceRoll(maleNames.length - 1)];
+    else return femaleNames[getDiceRoll(femaleNames.length - 1)];
+};
+
 const determineTraits = () => {
-  const [ physicalResult, personalityResult ] = [getDiceRoll(100), getDiceRoll(100)];
+  const [ physicalResult, personalityResult ] = [getDiceRoll(99), getDiceRoll(99)];
 
   return `${physicalTraits[physicalResult]}, ${personalityTraits[personalityResult]}`;
 };
 
-const determineAbility = () => {
-  const score = getDiceRoll(6, 3);
-  const mod = Math.floor((score - 10) / 2);
+const determineMod = score => {
+  switch (true) {
+    case (score < 4):
+      return -3;
+    case (score >= 4 && score < 6):
+      return -2;
+    case (score >= 6 && score < 9):
+      return -1;
+    case (score >= 9 && score < 13):
+      return 0;
+    case (score >= 13 && score < 16):
+      return 1;
+    case (score >= 16 && score < 18):
+      return 2;
+    case (score === 18):
+      return 3;
+  };
+};
 
-  return { score, mod };
+const determineAbility = abilityName => {
+  const score = getDiceRoll(6, 3);
+  const mod = determineMod(score);
+
+  return {
+    name: abilityName, 
+    abbrev: abilityName.substring(0, 3).toUpperCase(), 
+    score, 
+    mod
+  };
+};
+
+const determineRacialMove = race => {
+  switch (true) {
+    case (race === 'dwarf'):
+      return 'Smell Gold';
+    case (race === 'elf'):
+      return 'Tread Lightly';
+    case (race === 'halfling'):
+      return 'Make Friends';
+    case (race === 'human'):
+      return null;
+  }
 };
 
 export function getCharacter() {
-  const job = determineJob();
-  const name = determineName();
+  const rolledJobList= getDiceRoll(jobList.length - 1);
+  const job = jobList[rolledJobList];
+  const race = determineRace(rolledJobList);
   const gender = determineGender();
+  const name = determineName(race, gender);
   const traits = determineTraits();
   const abilities = [
-    determineAbility(), // Strength
-    determineAbility(), // Dexterity
-    determineAbility(), // Constitution
-    determineAbility(), // Intelligence
-    determineAbility(), // Wisdom
-    determineAbility()  // Charisma
+    determineAbility('Strength'), 
+    determineAbility('Dexterity'), 
+    determineAbility('Constitution'), 
+    determineAbility('Intelligence'), 
+    determineAbility('Wisdom'), 
+    determineAbility('Charisma')
   ];
+  const move = determineRacialMove(race);
 
   return {
     name,  
@@ -114,6 +128,6 @@ export function getCharacter() {
     abilities, 
     hp: Math.ceil(abilities[2].score / 4), 
     load: abilities[0].mod + 4, 
-    move: ''
+    move
   };
 };
