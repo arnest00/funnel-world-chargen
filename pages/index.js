@@ -58,7 +58,7 @@ export default function Home() {
             <p>Damage d4</p>
             <p>Load {newChar.load}</p>
             <p>Bond: {newChar.bond ? newChar.bond : ''}</p>
-            <p>Gear: {newChar.gear ? newChar.gear : ''}</p>
+            <p>Gear: {newChar.items ? newChar.items : ''}</p>
             <p>Starting Moves: Know Your Stuff{newChar.move ? `, ${newChar.move}` : ''}</p>
           </section>
         )}
