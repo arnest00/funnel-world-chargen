@@ -57,7 +57,8 @@ export default function Home() {
             <p>HP {newChar.hp}</p>
             <p>Damage d4</p>
             <p>Load {newChar.load}</p>
-            <p>Bond: {newChar.bond ? newChar.bond : ''}</p>
+            <p>Bond: {newChar.bondText ? newChar.bondText : 'None'}</p>
+            <small>{newChar.bondDetail ? newChar.bondDetail : 'None'}</small>
             <p>Gear: {newChar.items ? newChar.items : ''}</p>
             <p>Starting Moves: Know Your Stuff{newChar.move ? `, ${newChar.move}` : ''}</p>
           </section>

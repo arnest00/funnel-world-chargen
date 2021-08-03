@@ -113,6 +113,28 @@ const jobList = [
 ];
 const physicalTraits = ["Bald", "Balding", "Barrel-chested", "Big feet", "Big hands", "Bloodshot eyes", "Blue-eyed", "Bony", "Booming voice", "Braided hair", "Broad brow", "Broad chest", "Broad hips", "Broad shoulders", "Buck teeth", "Bushy eyebrows", "Cleft chin", "Crooked teeth", "Curly hair", "Dark eyes", "Dark skin", "Dimples", "Dirty", "Fair-haired", "Fat", "Freckled", "Full lips", "Furrowed brow", "Glowering", "Gnarled fingers", "Greasy-looking", "Hairless", "Hawk-nosed", "High cheekbones", "Hirsute", "Hunchback", "Husky voice", "Lambchop sideburns", "Lanky", "Large ears", "Large eyes", "Large eyes", "Large nose", "Lazy eye", "Limp", "Long arms", "Long beard", "Long fingers", "Long legs", "Long mustache", "Long torso", "Matted hair", "Missing teeth", "Nasal voice", "Nearsighted", "Nose ring", "One ear", "One eye", "One hand", "Pale skin", "Peg leg", "Persistent cough", "Petite", "Piercing(s)", "Plump", "Pop-eyed", "Pot-bellied", "Quiet voice", "Rosy cheeks", "Rotten teeth", "Ruddy", "Scars(s)", "Scowly", "Sharp chin", "Sharp fingernails", "Short", "Short hair", "Skinny", "Small ears", "Small eyes", "Small feet", "Small hands", "Small nose", "Smiley", "Spade-like hands", "Square jaw", "Stocky", "Stubby fingers", "Swan-like neck", "Tall", "Tattoo(s)", "Thick neck", "Unibrow", "Wavy hair", "Weathered", "Well-built", "Well-groomed", "Wheezy", "Whiny", "Wild hair"];
 const personalityTraits = ["Absentminded", "Aggressive", "Aloof", "Ambitious", "Arrogant", "Callous", "Calm", "Cantankerous", "Cautious", "Cheerful", "Coarse", "Competitive", "Conceited", "Confident", "Conscientious", "Courageous", "Courteous", "Covetous", "Cowardly", "Crazy", "Crude", "Curious", "Cynical", "Daring", "Deceitful", "Decisive", "Dignified", "Disciplined", "Drunkard", "Earnest", "Earthy", "Efficient", "Egocentric", "Enthusiastic", "Fatalistic", "Fiery", "Foolish", "Forgiving", "Forthright", "Friendly", "Frugal", "Generous", "Gentle", "Good-natured", "Gracious", "Greedy", "Gullible", "Helpful", "Honorable", "Humble", "Honorable", "Humble", "Impulsive", "Kind", "Lazy", "Libidinous", "Loyal", "Melancholic", "Methodical", "Modest", "Moralistic", "Morbid", "Mystical", "Naive", "Neat", "Nihilistic", "Obedient", "Obsessive", "Opportunistic", "Optimistic", "Outspoken", "Paranoid", "Peaceful", "Pedantic", "Plodding", "Power-hungry", "Protective", "Proud", "Quiet", "Realistic", "Religious", "Romantic", "Sadistic", "Sanctimonious", "Sarcastic", "Secretive", "Selfless", "Serious", "Shrewd", "Solitary", "Steadfast", "Stoic", "Stone-cold", "Stubborn", "Superstitious", "Suspicious", "Thorough", "Timid", "Treacherous", "Trusting"];
+const bondList = [
+  { bondText: '____________ has much to teach me about... [choose or roll 1d6]', bondDetail: '1 = love; 2 = anger; 3 = food; 4 = coin; 5 = raising children; 6 = survival' }, 
+  { bondText: '____________ insulted me by... [choose or roll 1d4]', bondDetail: '1 = spitting on me; 2 = calling me names; 3 = insulting my mother; 4 = ignoring me' }, 
+  { bondText: '____________ misunderstands me when I say that... [choose or roll 1d4]', bondDetail: '1 = I hate them; 2 = I like them; 3 = they stink; 4 = they are the best among us' }, 
+  { bondText: '____________ owes me... [choose or roll 1d6]', bondDetail: '1 = their life; 2 = a favor; 3 = a kiss; 4 = a drink; 5: = 1d4 coins; 6 = a child' }, 
+  { bondText: 'I am bound to ____________ because... [choose or roll 1d4]', bondDetail: '1 = they are kin; 2 = I owe them my life; 3 = I have no other friends; 4 = I am their property' }, 
+  { bondText: 'I blame ____________ for... [choose or roll 1d4]', bondDetail: '1 = losing that thing; 2 = getting me in trouble; 3 = my loss of faith; 4 = someone’s death' }, 
+  { bondText: 'I lied to ____________ about... [choose or roll 1d4]', bondDetail: '1 = my feelings; 2 = where I hid that thing; 3 = my faith; 4 = my family' }, 
+  { bondText: 'I saved ____________ from... [choose or roll 1d4]', bondDetail: '1 = drowning; 2 = drink; 3 = a life of crime; 4 = bodily harm' }, 
+  { bondText: 'I respect ____________ for... [choose or roll 1d4]', bondDetail: '1 = listening to me; 2 = telling it like it is; 3 = their sacrifice; 4 = their discipline' }, 
+  { bondText: 'I stole that thing from ____________ because I needed to... [choose or roll 1d4]', bondDetail: '1 = satisfy an urge; 2 = feed my family; 3 = sell it for profit; 4 = practice' }, 
+  { bondText: '____________ and I seek knowledge about... [choose or roll 1d4]', bondDetail: '1 = the wider world; 2 = beasts and monsters; 3 = the ways of the wild; 4 = arcane forces' }, 
+  { bondText: 'I trust ____________ because... [choose or roll 1d4]', bondDetail: '1 = we have sworn an oath; 2 = they are kin; 3 = they are wise; 4 = I have no choice' }, 
+  { bondText: 'I will convince ____________ of the value of... [choose or roll 1d6]', bondDetail: '1 = my faith; 2 = honor; 3 = power; 4 = coin; 5 = friendship; 6 = knowledge' }, 
+  { bondText: 'I will protect ____________ from... [choose or roll 1d4]', bondDetail: '1 = the truth; 2 = dark magic; 3 = themself; 4 = the others' }, 
+  { bondText: 'I have much to teach ____________ about... [choose or roll 1d6]', bondDetail: '1 = the gods; 2 = good; 3 = love; 4 = teamwork; 5 = the wild; 6 = the social order' }, 
+  { bondText: '____________ must forget about... [choose or roll 1d4]', bondDetail: '1 = their lost loved one; 2 = their mistakes; 3 = my mistakes; 4 = our past together' }, 
+  { bondText: '____________ is destined for greatness, because... [choose or roll 1d4]', bondDetail: '1 = the gods have told me so; 2 = they have that special glow; 3 = I say so; 4 = the rest of us are chumps' }, 
+  { bondText: 'I will learn ____________’s secret about... [choose or roll 1d4]', bondDetail: '1 = what they stole; 2 = where they’re really from; 3 = [another Villager]; 4 = me' }, 
+  { bondText: 'I do not trust ____________ because... [choose or roll 1d4]', bondDetail: '1 = they smell; 2 = they think they’re better; 3 = they’re stupid; 4 = they’re just plain evil' }, 
+  { bondText: 'I will soothe ____________’s concerns about... [choose or roll 1d4]', bondDetail: '1 = [another Villager]; 2 = their missing loved one; 3 = coin; 4 = our fate' }, 
+];
 
 const determineRace = result => {
   const rolledRace = result + 1;
@@ -191,6 +213,12 @@ const determineAbility = abilityName => {
   };
 };
 
+const determineBond = () => {
+  const result = getDiceRoll(bondList.length - 1);
+
+  return bondList[result];
+}
+
 const determineRacialMove = race => {
   switch (true) {
     case (race === 'dwarf'):
@@ -219,6 +247,7 @@ export function getCharacter() {
     determineAbility('Wisdom'), 
     determineAbility('Charisma')
   ];
+  const { bondText, bondDetail } = determineBond();
   const move = determineRacialMove(race);
 
   return {
@@ -229,6 +258,8 @@ export function getCharacter() {
     abilities, 
     hp: Math.ceil(abilities[2].score / 4), 
     load: abilities[0].mod + 4, 
+    bondText, 
+    bondDetail, 
     items: job.items, 
     move
   };
