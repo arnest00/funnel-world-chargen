@@ -1,0 +1,14 @@
+@import '../styles/variables.scss';
+
+.button {
+  border: none;
+	border-radius: 0.7rem;
+	background-color: $primary;
+	padding: 0.7rem 1rem;
+	color: $neutral-lightest;
+  font-size: 1rem;
+}
+
+.button:active {
+	transform: translateY(1px);
+}

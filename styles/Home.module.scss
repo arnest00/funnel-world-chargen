@@ -1,0 +1,23 @@
+@import '../styles/variables.scss';
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  margin: 1rem auto;
+}
+
+.tutorial, 
+.characterSheet {
+  border: 1px solid $neutral-darker;
+  border-radius: 0.7rem;
+  padding: 0.7rem 1rem;
+}
+
+.tutorial {
+  margin: 1rem auto;
+  width: max-content;
+}
+
+.characterSheet {
+  margin: 1rem;
+}

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Head from 'next/head';
 import Layout from '../components/layout';
 import Button from '../components/button';
-import styles from '../styles/Home.module.css';
+import styles from '../styles/Home.module.scss';
 import { getCharacter } from '../utils/getCharacter';
 
 export default function Home() {
@@ -27,11 +27,11 @@ export default function Home() {
         </div>
 
         {!newChar.abilities ? (
-          <section>
+          <section className={styles.tutorial}>
             <p>Press the button to generate a new character!</p>
           </section>
         ) : (
-          <section>
+          <section className={styles.characterSheet}>
             <p>Name: {newChar.name}</p>
             <p>Level: 0</p>
             <p>XP: 0</p>
